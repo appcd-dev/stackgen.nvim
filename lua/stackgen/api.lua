@@ -171,4 +171,33 @@ function M.publish_module(id, version, callback)
   }):start()
 end
 
+local module_service_health_path = "/tf-module/v1/health"
+
+function M.check_module_service_health(callback)
+  local health_endpoint = config.options.url .. module_service_health_path
+
+  ---@diagnostic disable-next-line: missing-fields
+  Job:new({
+    command = "curl",
+    args = {
+      "-s",
+      "-w",
+      "\n%{http_code}",
+      "-H",
+      "Authorization" .. ": Bearer " .. config.get_token(),
+      health_endpoint,
+    },
+    on_exit = function(job, _)
+      vim.schedule(function()
+        local body = handle_response(job:result())
+        if not body then
+          return
+        end
+
+        callback(body)
+      end)
+    end,
+  }):start()
+end
+
 return M
