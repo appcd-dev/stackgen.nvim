@@ -1,0 +1,1 @@
+# StackGen.nvim
