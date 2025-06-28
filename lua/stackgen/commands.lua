@@ -28,6 +28,7 @@ function M.get_module(id)
       return
     end
 
+    local _
     ok, _ = pcall(modules.save_module_metadata, content, result)
     if not ok then
       error("Failed to set module metadata: " .. error)
@@ -38,7 +39,8 @@ function M.get_module(id)
   end)
 end
 
-local function open_module_names_in_telescope(modules)
+---@param modules_list stackgen_module[]
+local function open_module_names_in_telescope(modules_list)
   local opts = {
     prompt_title = "Stackgen Modules",
     previewer = false,
@@ -49,7 +51,7 @@ local function open_module_names_in_telescope(modules)
     .new(opts, {
       prompt_title = "Stackgen Modules",
       finder = finders.new_table {
-        results = modules,
+        results = modules_list,
         entry_maker = function(entry)
           return {
             value = entry,
@@ -79,16 +81,16 @@ local function open_module_names_in_telescope(modules)
 end
 
 function M.list_modules()
-  ---@param modules stackgen_module[]
-  api.list_modules(function(modules)
-    if not modules or #modules == 0 then
+  ---@param modules_list stackgen_module[]
+  api.list_modules(function(modules_list)
+    if not modules_list or #modules_list == 0 then
       vim.notify("No modules found.", vim.log.levels.INFO, {
         title = "Stackgen Modules",
       })
       return
     end
 
-    open_module_names_in_telescope(modules)
+    open_module_names_in_telescope(modules_list)
   end)
 end
 
