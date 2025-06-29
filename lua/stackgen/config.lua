@@ -10,6 +10,7 @@ M.options = {
 
 M._token = nil
 
+---@param opts StackgenConfig
 function M.setup(opts)
   opts = opts or {}
   if opts.url then
