@@ -1,0 +1,47 @@
+================================================================================
+INTRODUCTION                                                   *stackgen.nvim*
+
+stackgen.nvim is a neovim plugin that allows users to interact with
+StackGen, a generative infrastructure platform, directly from within
+neovim.
+
+    Website:       https://stackgen.com/
+    Cloud Console: https://cloud.stackgen.com/
+
+Features:
+    - Browse, manage, and publish available terraform modules in StackGen
+
+================================================================================
+Functions                                                 *stackgen-functions*
+
+stackgen.setup({opts})                                      *stackgen.setup()*
+
+    This function is used to configure the StackGen neovim plugin.
+
+    Usage:
+    >
+    require('stackgen').setup({
+        url = 'https://cloud.stackgen.com', -- Set the StackGen cloud console
+    }
+<
+
+stackgen.config.set({token})                *stackgen.config.set_token(token)*
+
+    This function is used to set the StackGen personal access token for
+    authentication.
+
+================================================================================
+Plugin user commands                                       *stackgen-commands*
+>
+    - `:StackGenSetToken {token}`: Set the StackGen personal access token for
+      authentication.
+    - `:StackGenModuleList`: List available terraform modules in StackGen and 
+      open them in Telescope.
+    - `:StackGenModuleGet {module_uuid}`: Search for terraform modules in
+      StackGen
+    - `:StackGenModuleSync`: Sync the local module cache with StackGen.
+    - `:StackGenModulePublish {version-name}`: Publish a terraform module to
+        StackGen.
+<
+
+vim:tw=78:ts=8:ft=help:norl:
