@@ -105,6 +105,6 @@ All `stackgen.nvim` functions are wrapped in `vim` commands for easy access, tab
 You can set up key mappings for the commands in your Neovim configuration. For example:
 
 ```lua
-vim.keymap.set("n", "<leader>sgl", "<cmd>StackGenModuleList<CR>")
-vim.keymap.set("n", "<leader>sgs", "<cmd>StackGenModuleSync<CR>")
+vim.keymap.set("n", "<leader>sgl", "<cmd>StackGen module_list<CR>")
+vim.keymap.set("n", "<leader>sgs", "<cmd>StackGen module_sync<CR>")
 ```
