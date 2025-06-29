@@ -24,12 +24,6 @@ stackgen.setup({opts})                                      *stackgen.setup()*
         url = 'https://cloud.stackgen.com', -- Set the StackGen cloud console
     }
 <
-
-stackgen.config.set({token})                *stackgen.config.set_token(token)*
-
-    This function is used to set the StackGen personal access token for
-    authentication.
-
 ================================================================================
 Plugin user commands                                       *stackgen-commands*
 >
