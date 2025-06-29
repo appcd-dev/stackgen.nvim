@@ -25,11 +25,6 @@ stackgen.setup({opts})                                      *stackgen.setup()*
     }
 <
 
-stackgen.config.set({token})                *stackgen.config.set_token(token)*
-
-    This function is used to set the StackGen personal access token for
-    authentication.
-
 ================================================================================
 Plugin user commands                                       *stackgen-commands*
 >
