@@ -24,6 +24,7 @@ stackgen.setup({opts})                                      *stackgen.setup()*
         url = 'https://cloud.stackgen.com', -- Set the StackGen cloud console
     }
 <
+
 ================================================================================
 Plugin user commands                                       *stackgen-commands*
 >
