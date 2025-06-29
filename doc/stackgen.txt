@@ -1,0 +1,105 @@
+================================================================================
+                                                               *stackgen.nvim*
+CONTENTS
+
+    1. Introduction................ |stackgen-intro|
+    2. Installation................ |stackgen-install|
+    3. Configuration............... |stackgen-config|
+    4. Commands.................... |stackgen-commands|
+    5. Examples.................... |stackgen-examples|
+
+================================================================================
+
+1. Introduction                                               *stackgen-intro*
+
+StackGen: The Generative Infrastructure Platform
+
+|stackgen.nvim| is a neovim plugin that enables users to interact with
+StackGen from inside neovim.
+
+    Website:       https://stackgen.com/
+    Cloud Console: https://cloud.stackgen.com/
+
+1.1 Features
+
+    - Browse, manage, and publish available terraform modules in StackGen
+
+================================================================================
+
+2. Installation                                             *stackgen-install*
+
+To install the StackGen neovim plugin, you can use a plugin manager like
+vim-plug, packer.nvim, or any other plugin manager of your choice.
+
+2.1 Using lazy.nvim >
+
+    use {
+      'appcd-dev/stackgen.nvim',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+      },
+      opts = {
+        url = 'https://cloud.stackgen.com',
+      },
+      config = function(_, opts)
+        require('stackgen').setup({
+          require("stackgen").setup(opts)
+
+          vim.keymap.set("n", "<leader>sgl", "<cmd>StackGenModuleList<CR>")
+          vim.keymap.set("n", "<leader>sgs", "<cmd>StackGenModuleSync<CR>")
+        })
+      end
+    }
+<
+
+================================================================================
+
+3. Configuration                                             *stackgen-config*
+
+To configure the StackGen neovim plugin, you can set the `url` option to
+the StackGen cloud console URL. This is typically done in your Neovim
+configuration file (e.g., `init.lua` or `init.vim`).
+
+3.1 Example Configuration
+>
+    require('stackgen').setup({
+      url = 'https://cloud.stackgen.com', -- Set the StackGen cloud console URL
+    })
+
+3.2 Setting the StackGen Token
+
+To set your StackGen token, you can use the `:StackGenSetToken` command
+from within Neovim.
+>
+    :StackGenSetToken <your_stackgen_token>
+<
+3.2 Checkhealth
+
+To check the health of the StackGen plugin, you can use the
+`:checkhealth stackgen` command. This will provide information about the
+plugin's, whether it can connect to the StackGen cloud.
+>
+    :checkhealth stackgen
+<
+
+Note: Make sure you set your StackGen token before running this command.
+
+3.3 Key Mappings
+
+You can set up key mappings to quickly access StackGen commands. For
+example, you can add the following key mappings in your Neovim
+configuration file:
+>
+    vim.keymap.set("n", "<leader>sgl", "<cmd>StackGenModuleList<CR>")
+    vim.keymap.set("n", "<leader>sgs", "<cmd>StackGenModuleSync<CR>")
+<
+================================================================================
+
+4. Commands *stackgen-commands*
+
+================================================================================
+
+5. Examples *stackgen-examples*
+
+vim:tw=78:ts=8:ft=help:norl:
