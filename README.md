@@ -5,7 +5,6 @@
 - [Background](#background)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Examples](#examples)
 
 ## Background
 
