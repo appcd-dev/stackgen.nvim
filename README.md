@@ -79,6 +79,15 @@ Make sure to run `:checkhealth stackgen` to verify that the plugin is set up cor
 
 All `stackgen.nvim` functions are wrapped in `vim` commands for easy access, tab completion, and key mappings.
 
+- `:StackGen set_token <token>`: Set the StackGen personal access token for authentication.
+- `:StackGen module_list` List available terraform modules in StackGen and open them in Telescope.
+- `:StackGen module_get <module_uuid>`: Search for terraform modules in StackGen and open the module files in Telescope.
+- `:StackGen module_sync` Sync the local module cache with StackGen.
+- `:StackGen module_publish <version-name>`: Publish a terraform module to StackGen.
+- `:StackGen show_config`: Show the current StackGen configuration.
+
+#### How to use the commands
+
 ```viml
 " Show all commands
 :StackGen
@@ -90,13 +99,6 @@ All `stackgen.nvim` functions are wrapped in `vim` commands for easy access, tab
 " Setting options
 :StackGen module_get <module_uuid>
 ```
-
-- `:StackGen set_token <token>`: Set the StackGen personal access token for authentication.
-- `:StackGen module_list` List available terraform modules in StackGen and open them in Telescope.
-- `:StackGen module_get <module_uuid>`: Search for terraform modules in StackGen and open the module files in Telescope.
-- `:StackGen module_sync` Sync the local module cache with StackGen.
-- `:StackGen module_publish <version-name>`: Publish a terraform module to StackGen.
-- `:StackGen show_config`: Show the current StackGen configuration.
 
 ### Key Mappings
 
