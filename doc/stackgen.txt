@@ -26,17 +26,17 @@ stackgen.setup({opts})                                      *stackgen.setup()*
 <
 
 ================================================================================
-Plugin user commands                                       *stackgen-commands*
+Vim commands                                               *stackgen-commands*
 >
-    - `:StackGenSetToken {token}`: Set the StackGen personal access token for
-      authentication.
-    - `:StackGenModuleList`: List available terraform modules in StackGen and 
+    - `:StackGen set_token <token>`: Set the StackGen personal access token
+      for authentication.
+    - `:StackGen module_list` List available terraform modules in StackGen and
       open them in Telescope.
-    - `:StackGenModuleGet {module_uuid}`: Search for terraform modules in
-      StackGen
-    - `:StackGenModuleSync`: Sync the local module cache with StackGen.
-    - `:StackGenModulePublish {version-name}`: Publish a terraform module to
-        StackGen.
+    - `:StackGen module_get <module_uuid>`: Search for terraform modules in
+      StackGen and open the module files in Telescope.
+    - `:StackGen module_sync` Sync the local module cache with StackGen.
+    - `:StackGen module_publish <version-name>`: Publish a terraform module to
+      StackGen.
+    - `:StackGen show_config`: Show the current StackGen configuration.
 <
-
 vim:tw=78:ts=8:ft=help:norl:

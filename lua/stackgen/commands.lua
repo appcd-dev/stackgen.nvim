@@ -20,6 +20,21 @@ end
 
 ---@param id string
 function M.get_module(id)
+  --     local token = args[1]
+  --     if not token or token == "" then
+  --       vim.notify("StackGen: Please provide a token.", vim.log.levels.ERROR)
+  --       return
+  --     end
+  --     config.set_token(token)
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     vim.notify("Stackgen token set successfully.", vim.log.levels.INFO, {
+  --       title = "Stackgen",
+  --     })
+  -- if not id or id == "" then
+  --   error("Module ID is required")
+  --   return
+  -- end
+
   ---@param content stackgen_module
   api.get_module(id, function(content)
     local ok, result = pcall(modules.save_module_to_file, content)

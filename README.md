@@ -63,7 +63,7 @@ You need to set up your StackGen token to authenticate with the StackGen API.
 You can do this by running the following command in Neovim:
 
 ```vim
-:StackGenSetToken <your_token>
+:StackGen set_token <your_token>
 ```
 
 > Note: You can generate a personal access token in the StackGen Cloud Console in [settings](https://cloud.stackgen.com/account-settings/pat).
@@ -76,10 +76,34 @@ Make sure to run `:checkhealth stackgen` to verify that the plugin is set up cor
 
 ## Usage
 
-### Commands
+### Vim Commands
 
-- `:StackGenSetToken <token>`: Set the StackGen personal access token for authentication.
-- `:StackGenModuleList`: List available terraform modules in StackGen and open them in Telescope.
-- `:StackGenModuleGet <module_uuid>`: Search for terraform modules in StackGen and open the module files in Telescope.
-- `:StackGenModuleSync`: Sync the local module cache with StackGen.
-- `:StackGenModulePublish <version-name>`: Publish a terraform module to StackGen.
+All `stackgen.nvim` functions are wrapped in `vim` commands for easy access, tab completion, and key mappings.
+
+```viml
+" Show all commands
+:StackGen
+
+" Tab completion
+:StackGen |<tab>
+:StackGen module_list
+
+" Setting options
+:StackGen module_get <module_uuid>
+```
+
+- `:StackGen set_token <token>`: Set the StackGen personal access token for authentication.
+- `:StackGen module_list` List available terraform modules in StackGen and open them in Telescope.
+- `:StackGen module_get <module_uuid>`: Search for terraform modules in StackGen and open the module files in Telescope.
+- `:StackGen module_sync` Sync the local module cache with StackGen.
+- `:StackGen module_publish <version-name>`: Publish a terraform module to StackGen.
+- `:StackGen show_config`: Show the current StackGen configuration.
+
+### Key Mappings
+
+You can set up key mappings for the commands in your Neovim configuration. For example:
+
+```lua
+vim.keymap.set("n", "<leader>sgl", "<cmd>StackGenModuleList<CR>")
+vim.keymap.set("n", "<leader>sgs", "<cmd>StackGenModuleSync<CR>")
+```
