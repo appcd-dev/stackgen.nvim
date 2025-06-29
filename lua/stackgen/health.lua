@@ -15,7 +15,8 @@ M.check = function()
 
   local output = result.stdout
   if not output then
-    vim.health.error "StackGen is not reachable, try setting the correct URL in your config or set PAT using :StackGen set_token cmd"
+    vim.health.error [[StackGen is not reachable, try setting the correct URL
+     in your config or set PAT using :StackGen set_token cmd]]
     return
   end
 
@@ -27,7 +28,8 @@ M.check = function()
     if ok and decoded.status == "up" then
       vim.health.ok "StackGen is healthy"
     else
-      vim.health.error "StackGen is not reachable, try setting the correct URL in your config or set PAT using :StackGen set_token cmd"
+      vim.health.error [[StackGen is not reachable, try setting the correct URL
+     in your config or set PAT using :StackGen set_token cmd]]
     end
   else
     vim.health.error("StackGen is not reachable, HTTP " .. (http_code or "unknown"))

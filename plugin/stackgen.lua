@@ -3,7 +3,8 @@ local cmds = require "stackgen.commands"
 
 ---@class MySubCommand
 ---@field impl fun(args: string[], opts: table) The command implementation
----@field complete? fun(subcmd_arg_lead: string): string[] (optional) Command completions callback, taking the lead of the subcommand's arguments
+---@field complete? fun(subcmd_arg_lead: string): string[] (optional)
+---Command completions callback, taking the lead of the subcommand's arguments
 
 ---@type table<string, MySubCommand>
 local subcommand_tbl = {
