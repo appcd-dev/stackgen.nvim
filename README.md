@@ -46,12 +46,10 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
     url = 'https://cloud.stackgen.com', -- StackGen Cloud Console URL
   },
   config = function(_, opts)
-    require('stackgen').setup({
-      require("stackgen").setup(opts)
+    require("stackgen").setup(opts)
 
-      vim.keymap.set("n", "<leader>sgl", "<cmd>StackGenModuleList<CR>")
-      vim.keymap.set("n", "<leader>sgs", "<cmd>StackGenModuleSync<CR>")
-    })
+    vim.keymap.set("n", "<leader>sgl", "<cmd>StackGenModuleList<CR>")
+    vim.keymap.set("n", "<leader>sgs", "<cmd>StackGenModuleSync<CR>")
   end
 }
 ```
