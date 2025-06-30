@@ -11,7 +11,7 @@ local function open_module_files_in_telescope(module_dir)
   local opts = {
     prompt_title = "Stackgen Module Files",
     cwd = module_dir,
-    hidden = true,
+    hidden = false,
     no_ignore = true,
   }
 
